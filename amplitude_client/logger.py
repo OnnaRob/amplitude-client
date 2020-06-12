@@ -38,24 +38,3 @@ class AmplitudeLogger:
                 log.warn("Failed to log event", exc_info=True)
 
         return resp
-
-    async def log_timed_event(self, event_type, user_id, event_properties):
-        def __call__(self, func):
-            async def decorated_func(*args, **kwargs):
-                with timeit() as timed:
-                    await func(*args, **kwargs)
-
-                event_payload = {
-                    "user_id": user_id,
-                    "event_type": event_type,
-                    "event_properties": event_properties,
-                }
-
-                event_payload["event_properties"][
-                    "load_time"
-                ] = f"{timed.duration / 1000}"
-                asyncio.ensure_future(self.log_event())
-
-            return decorated_func()
-
-            return decorated_func
