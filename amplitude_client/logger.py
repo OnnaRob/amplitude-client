@@ -1,12 +1,11 @@
 from . import resources
+from jsonschema import validate
+from jsonschema.exceptions import ValidationError
 
 import aiohttp_client
-import asyncio
-import enviral
 import importlib.resources as pkg_resources
 import json
 import logging
-import timeit
 
 log = logging.getLogger("amplitude-client")
 
@@ -17,21 +16,18 @@ class AmplitudeLogger:
     def __init__(self, api_key: str):
         self.api_key = api_key
 
+        self.api_schema = json.loads(pkg_resources.read_text(resources, "schema.json"))
+
     async def log_event(self, event):
         # Amplitude API requires (user_id OR device_id) AND event_type
-        user_id = event.get("user_id")
-        device_id = event.get("device_id")
-        event_type = event.get("event_type")
-
-        if (not user_id and not device_id) or not event_type:
-            return
 
         event = {"api_key": self.api_key, "events": [event]}
 
-        # Validate event against schema
-        enviral.validate_object(
-            event, json.loads(pkg_resources.read_text(resources, "schema.json"))
-        )
+        try:
+            validate(instance=event, schema=self.api_schema)
+        except ValidationError:
+            log.error("Invalid payload", exc_info=True)
+            return None
 
         async with aiohttp_client.post(API_URL, data=json.dumps(event)) as resp:
             if resp.status != 200:

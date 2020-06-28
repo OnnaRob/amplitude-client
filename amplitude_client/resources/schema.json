@@ -1,79 +1,141 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://example.com/example.json",
-    "type": "object",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
-    "default": {},
-    "examples": [
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Amplitude Event",
+  "properties": {
+    "api_key": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": [
         {
-            "api_key": "my_amplitude_api_key",
-            "events": [
-                {
-                    "user_id": "datamonster@gmail.com",
-                    "device_id": "C8F9E604-F01A-4BD9-95C6-8E5357DF265D",
-                    "event_type": "watch_tutorial",
-                    "time": 1396381378123,
-                    "event_properties": {
-                        "load_time": 0.8371,
-                        "source": "notification",
-                        "dates": [
-                            "monday",
-                            "tuesday"
-                        ]
-                    },
-                    "user_properties": {
-                        "age": 25,
-                        "gender": "female",
-                        "interests": [
-                            "chess",
-                            "football",
-                            "music"
-                        ]
-                    },
-                    "groups": {
-                        "company_id": "1",
-                        "company_name": [
-                            "Amplitude",
-                            "DataMonster"
-                        ]
-                    },
-                    "app_version": "2.1.3",
-                    "platform": "iOS",
-                    "os_name": "Android",
-                    "os_version": "4.2.2",
-                    "device_brand": "Verizon",
-                    "device_manufacturer": "Apple",
-                    "device_model": "iPhone 9,1",
-                    "carrier": "Verizon",
-                    "country": "United States",
-                    "region": "California",
-                    "city": "San Francisco",
-                    "dma": "San Francisco-Oakland-San Jose, CA",
-                    "language": "English",
-                    "price": 4.99,
-                    "quantity": 3,
-                    "revenue": -1.99,
-                    "productId": "Google Pay Store Product Id",
-                    "revenueType": "Refund",
-                    "location_lat": 37.77,
-                    "location_lng": -122.39,
-                    "ip": "127.0.0.1",
-                    "idfa": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-                    "idfv": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-                    "adid": "AEBE52E7-03EE-455A-B3C4-E57283966239",
-                    "android_id": "BCCE52E7-03EE-321A-B3D4-E57123966239",
-                    "event_id": 23,
-                    "session_id": 1396381378123,
-                    "insert_id": "5f0adeff-6668-4427-8d02-57d803a2b841"
-                }
-            ]
+          "type": "object",
+          "properties": {
+            "user_id": {
+              "type": "string"
+            },
+            "device_id": {
+              "type": "string"
+            },
+            "event_type": {
+              "type": "string"
+            },
+            "time": {
+              "type": "integer"
+            },
+            "event_properties": {
+              "type": "object",
+              "properties": {}
+            },
+            "user_properties": {
+              "type": "object",
+              "properties": {}
+            },
+            "groups": {}
+          },
+          "app_version": {
+            "type": "string"
+          },
+          "platform": {
+            "type": "string"
+          },
+          "os_name": {
+            "type": "string"
+          },
+          "os_version": {
+            "type": "string"
+          },
+          "device_brand": {
+            "type": "string"
+          },
+          "device_manufacturer": {
+            "type": "string"
+          },
+          "device_model": {
+            "type": "string"
+          },
+          "carrier": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "dma": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "integer"
+          },
+          "revenue": {
+            "type": "number"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "revenueType": {
+            "type": "string"
+          },
+          "location_lat": {
+            "type": "number"
+          },
+          "location_lng": {
+            "type": "number"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "idfa": {
+            "type": "string"
+          },
+          "idfv": {
+            "type": "string"
+          },
+          "adid": {
+            "type": "string"
+          },
+          "android_id": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "integer"
+          },
+          "session_id": {
+            "type": "integer"
+          },
+          "insert_id": {
+            "type": "string"
+          },
+          "anyOf": [
+            {
+              "required": [
+                "user_id"
+              ]
+            },
+            {
+              "required": [
+                "device_id"
+              ]
+            }
+          ]
         }
-    ],
-    "required": [
-        "api_key",
-        "events"
-    ],
-    "additionalProperties": true,
-    "properties": {"type": "object", "properties": {}}
+      ]
+    }
+  },
+  "required": [
+    "api_key",
+    "events"
+  ]
 }
