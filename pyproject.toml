@@ -9,7 +9,7 @@ python = "^3.7"
 aiohttp = "^3.6.2"
 aiohttp-client-manager = "^1.1.1"
 json-schema-env-validator = "^1.0.5"
-aioresponses = "^0.6.4"
+aioresponses = "^0.7.1"
 jsonschema = "^3.2.0"
 
 [tool.poetry.dev-dependencies]
