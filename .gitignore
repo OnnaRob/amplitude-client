@@ -5,3 +5,4 @@ dist/
 # Python Stuff
 **/__pycache__
 *.egg-info
+.python-version
