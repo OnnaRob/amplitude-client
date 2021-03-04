@@ -1,14 +1,26 @@
-## Description
+<!-- Here build and CI badges -->
 
-A simple aiohttp based wrapper for the Amplitude HTTP V2 API.
+---
+<!-- PROJECT LOGO -->
+<h1 align="center">
+  <br>
+  <img src="https://onna.com/wp-content/uploads/2020/03/h-onna-solid.png" alt="Onna Logo"></a>
+</h1>
+
+<h2 align="center">Amplitude Client</h2>
+
+
+## About
+
+[AIOHTTP](https://docs.aiohttp.org/en/stable/) based wrapper for the [Amplitude HTTP V2 API](https://developers.amplitude.com/docs/http-api-v2).
 
 ## Installation
 
 ```bash
-pip install amplitude-cient
+pip install amplitude-client
 ```
 
-## Usage example
+## Usage
 
 ```python
 from amplitude_client.logger import AmplitudeLogger
@@ -32,5 +44,4 @@ if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(run())
 ```
-
 
