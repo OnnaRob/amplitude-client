@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "amplitude-client"
-version = "0.1.5"
+version = "0.1.6"
 description = "AIOHTTP based Python client for Amplitude"
 authors = ["Ismael Alaoui <ismael@onna.com>"]
 
