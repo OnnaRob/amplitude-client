@@ -5,7 +5,7 @@ description = "AIOHTTP based Python client for Amplitude"
 authors = ["Ismael Alaoui <ismael@onna.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 aiohttp = "^3.6.2"
 aiohttp-client-manager = "^1.1.1"
 json-schema-env-validator = "^1.0.5"
